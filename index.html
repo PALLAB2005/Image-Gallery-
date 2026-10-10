@@ -1,1 +1,58 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Light Studies</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Image gallery &middot; 12 plates</p>
+      <h1>Light Studies</h1>
+    </div>
+    <p class="lede">Scenes drawn in code. Filter by subject, shift the tone, and open any plate in the full screen viewer. Arrow keys, swipe, or the side buttons move between plates.</p>
+  </header>
+
+  <div class="toolbar" role="region" aria-label="Gallery controls">
+    <div class="group"><span class="glabel" id="gl-cat">Subject</span><div class="chips" id="cats" role="group" aria-labelledby="gl-cat"></div></div>
+    <div class="group"><span class="glabel" id="gl-tone">Tone</span><div class="chips" id="tones" role="group" aria-labelledby="gl-tone"></div></div>
+  </div>
+
+  <p class="status" id="status" aria-live="polite"></p>
+  <ul class="grid" id="grid"></ul>
+
+  <footer class="foot">
+    <p>Every plate is an SVG generated in the page, so it stays sharp at any size. To use your own photos, set a file path on each plate in the PLATES list in the script.</p>
+  </footer>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Plate viewer" hidden>
+  <div class="lb-top">
+    <p class="lb-count" id="lbCount"></p>
+    <button class="chip" id="lbClose" type="button">Close
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12"/></svg>
+    </button>
+  </div>
+  <div class="lb-stage" id="lbStage">
+    <button class="nav prev" id="lbPrev" type="button" aria-label="Previous plate">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3L5 9l6 6"/></svg>
+    </button>
+    <img class="lb-img" id="lbImg" alt="" draggable="false">
+    <button class="nav next" id="lbNext" type="button" aria-label="Next plate">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3l6 6-6 6"/></svg>
+    </button>
+  </div>
+  <div class="lb-bottom">
+    <div class="lb-cap"><p class="lb-title" id="lbTitle"></p><p class="lb-sub" id="lbSub"></p></div>
+    <div class="chips" id="lbTones" role="group" aria-label="Tone"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
